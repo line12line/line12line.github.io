@@ -9,5 +9,5 @@ export const CONFIG = {
     appId: "1:1023157702029:web:60e3b9c1bcd626a8d641c4"
   },
   // Gmail власника сайту (головного адміністратора).
-  owners: ["syrovatka.serhii@gmail.com"]
+  owners: ["syrovatka.serhii@gmail.com", "n.tashka@gmail.com"]
 };
