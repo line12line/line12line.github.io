@@ -100,7 +100,7 @@ header nav a[aria-current=page]{background:#fff;color:#1f4fd1;border-color:#fff}
 .vb svg{width:18px;height:18px;flex:none}
 .vb:hover{border-color:var(--vc)}
 .vb[aria-pressed="true"]{background:var(--vc);border-color:var(--vc);color:#fff}
-.vb.up{--vc:#15803d}.vb.dn{--vc:#dc2626}
+.vb.up{--vc:#15803d}.vb.dn{--vc:#dc2626}.vb.dn svg{transform:scaleY(-1)}
 .vfix{display:grid;gap:8px;border:1.5px dashed var(--line);border-radius:12px;padding:12px}
 .vfix .row input{width:110px}
 .lbl{font-weight:700;font-size:14px;margin:10px 0 2px}
@@ -346,7 +346,7 @@ const THUMB='<path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.5
 function voteReal(id){let u=0,d=0;Object.values(votesAll).forEach(m=>{if(m&&m[id]===1)u++;else if(m&&m[id]===-1)d++});return{u,d}}
 function voteCount(id){const r=voteReal(id),f=voteFix[id]||{};return{u:Math.max(0,r.u+(+f.u||0)),d:Math.max(0,r.d+(+f.d||0))}}
 function voteHtml(id){const{u,d}=voteCount(id),t=u+d,pu=t?Math.round(u*100/t):0,pd=t?100-pu:0,mine=(votesAll[myId]||{})[id]||0;
-  const ic=(f)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${f?' transform="scale(1,-1)"':''}>${THUMB}</svg>`;
+  const ic=(f)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${THUMB}</svg>`;
   return `<div class="votes"><button type="button" class="vb up" data-vote="${esc(id)}" data-v="1" aria-pressed="${mine===1}" title="Підтримую ініціативу · голосів: ${u}" aria-label="Підтримую ініціативу, ${pu}%">${ic(0)}${pu}%</button><button type="button" class="vb dn" data-vote="${esc(id)}" data-v="-1" aria-pressed="${mine===-1}" title="Ініціатива неактуальна · голосів: ${d}" aria-label="Ініціатива неактуальна, ${pd}%">${ic(1)}${pd}%</button></div>`}
 let voteBusy=false;
 async function castVote(id,v){if(!db||!myId){toast("Голосування тимчасово недоступне. Оновіть сторінку");return}
