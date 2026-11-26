@@ -329,7 +329,7 @@ function drawMetro(){
   const s=$("#metroSvg"),W=s.clientWidth,H=s.clientHeight;if(!W)return;
   const n=counts(),tot=C.items.length,narrow=W<560;if(!tot){s.innerHTML="";return}
   const pad=narrow?14:28,y=narrow?42:56,span=W-pad*2;let x=pad,out="";
-  ["done","prog","wait","new"].forEach((k,i)=>{const w=span*n[k]/tot;if(!w)return;
+  ["new","wait","prog","done"].forEach((k,i)=>{const w=span*n[k]/tot;if(!w)return;
     out+=`<rect x="${x}" y="${y-9}" width="${w}" height="18" rx="9" fill="${ST[k].c}" opacity="${filt==="all"||filt===k?1:.25}"/>`;
     const cx=x+w/2;
     out+=`<circle cx="${cx}" cy="${y}" r="${narrow?15:18}" fill="var(--bg)" stroke="${ST[k].c}" stroke-width="5"/>`;
