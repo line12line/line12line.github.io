@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>12 лінія — Колонщина</title>
-<meta name="description" content="Громадська ініціатива села Колонщина та сіл старостату (Березівка, Марʼянівка, Миколаївка): ініціативи, їхні статуси та подання нових ідей.">
+<meta name="description" content="Громадська ініціатива розвитку села Колонщина та сіл старостату (Березівка, Марʼянівка, Миколаївка): ініціативи, їхні статуси та подання нових ідей.">
 <meta name="theme-color" content="#2e7238">
 <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="favicon.ico?v=3" sizes="any">
@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta property="og:title" content="12 лінія — Колонщина">
-<meta property="og:description" content="Громадська ініціатива села Колонщина, а також сіл Березівка, Марʼянівка, Миколаївка">
+<meta property="og:description" content="Громадська ініціатива розвитку села Колонщина, а також сіл Березівка, Марʼянівка, Миколаївка">
 <meta property="og:image" content="https://line12line.github.io/icons/share-green.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -282,7 +282,7 @@ const I=[
 {id:"flags",cat:0,st:"done",title:"Нові прапорці на вулиці Шевченка",ask:"Прапорці України на стовпах освітлення висіли близько трьох років і обтріпалися, а це державний символ.",notes:["Виконано."]}
 ];
 const DEF={title:"12 лінія",
-sub:"Громадська ініціатива села Колонщина,\nа також сіл нашого старостату: Березівка, Марʼянівка, Миколаївка\nМакарівська ОТГ, Київська область",
+sub:"Громадська ініціатива розвитку села Колонщина,\nа також сіл нашого старостату: Березівка, Марʼянівка, Миколаївка\nМакарівська ОТГ, Київська область",
 formIntro:"Бачите проблему в селі або маєте ідею? Опишіть її, і керівництво «12 лінії» розгляне заявку та повідомить, чи візьмемо її в роботу.",
 fallback:"вайбер-чат «Колонщина» або будь-кому з команди «12 лінії»",
 footer:"«12 лінія» — громадська ініціатива с. Колонщина. Статуси оновлюються командою ініціативи.",
@@ -314,7 +314,7 @@ async function saveContent(msg,fn){
   catch(x){toast("Не вдалося зберегти. Перевірте інтернет і спробуйте ще раз");return false}}
 
 function renderTexts(){
-  $("#hTitle").textContent=C.title;if(C.sub==="Громадська ініціатива\nрозвитку села Колонщина\nМакарівська ОТГ, Київська область")C.sub="Громадська ініціатива села Колонщина,\nа також сіл нашого старостату: Березівка, Марʼянівка, Миколаївка\nМакарівська ОТГ, Київська область";$("#hSub").textContent=C.sub;$("#formIntro").textContent=C.formIntro;$("#fText2").textContent=C.footer;
+  $("#hTitle").textContent=C.title;if(C.sub==="Громадська ініціатива\nрозвитку села Колонщина\nМакарівська ОТГ, Київська область"||C.sub==="Громадська ініціатива села Колонщина,\nа також сіл нашого старостату: Березівка, Марʼянівка, Миколаївка\nМакарівська ОТГ, Київська область")C.sub="Громадська ініціатива розвитку села Колонщина,\nа також сіл нашого старостату: Березівка, Марʼянівка, Миколаївка\nМакарівська ОТГ, Київська область";$("#hSub").textContent=C.sub;$("#formIntro").textContent=C.formIntro;$("#fText2").textContent=C.footer;
   const linkify=(p,x)=>{const re=/(https?:\/\/[^\s<>«»"]+|www\.[^\s<>«»"]+)/gi;let i=0,m;
     while((m=re.exec(x))){let u=m[0].replace(/[),.;:!?»"']+$/,"");if(m.index>i)p.appendChild(document.createTextNode(x.slice(i,m.index)));
       const a=document.createElement("a");a.href=/^www\./i.test(u)?"https://"+u:u;a.target="_blank";a.rel="noopener";a.textContent=u;a.style.wordBreak="break-word";p.appendChild(a);i=m.index+u.length;re.lastIndex=i}
